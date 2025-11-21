@@ -61,29 +61,36 @@ Generates a complete research document with:
 
 Deep_research_agent/
 │
-├── agents.py # All agent definitions
-├── tasks.py # All task definitions
-├── crew.py # Crew configuration and research pipeline
-├── config.py # Loads API keys from .env
-├── test_research.py # Simple test script
+├── agents.py          # All agent definitions
+├── tasks.py           # All task definitions
+├── crew.py            # Crew configuration and research pipeline
+├── config.py          # Loads API keys from .env
+├── test_research.py   # Simple test script
 │
-├── requirements.txt # Dependencies
-├── .env # API keys (not committed)
+├── requirements.txt   # Dependencies
+├── .env               # API keys (not committed)
 │
-└── README.md # Project documentation
+└── README.md          # Project documentation
+
 
 ## 🔧 Installation
 
 ### 1️⃣ Clone the repository
+```bash
 git clone https://github.com/ChauhanAyush04/Deep_research_agent.git
 cd Deep_research_agent
-###2️⃣ Install dependencies
-Copy code
-pip install -r requirements.txt
-🔐 Environment Variables
-Create a .env file in your project directory:
+```
 
-ini
-Copy code
+### 2️⃣ Install dependencies
+```bash
+pip install -r requirements.txt
+```
+
+### 🔐 Environment Variables
+Create a `.env` file in your project directory and add your API keys:
+
+```ini
 OPENAI_API_KEY=your-openai-key
 SERPLY_API_KEY=your-serply-key
+```
+
