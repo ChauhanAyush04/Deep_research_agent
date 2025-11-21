@@ -59,6 +59,7 @@ Generates a complete research document with:
 
 ## 📁 Project Structure
 
+```
 Deep_research_agent/
 │
 ├── agents.py          # All agent definitions
@@ -71,6 +72,8 @@ Deep_research_agent/
 ├── .env               # API keys (not committed)
 │
 └── README.md          # Project documentation
+```
+
 
 
 ## 🔧 Installation
