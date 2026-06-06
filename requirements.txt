@@ -17,3 +17,4 @@ beautifulsoup4
 readability-lxml
 scikit-learn 
 numpy
+ddgs
