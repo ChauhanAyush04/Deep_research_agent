@@ -54,7 +54,7 @@ Follows a modular microservices architecture with clear separation of concerns:
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/Devanshu1609/AI-Powered-Startup-Market-Research
+git clone https://github.com/ChauhanAyush04/Deep_research_agent.git
 ```
 
 ### 2. Set Up Python Environment
