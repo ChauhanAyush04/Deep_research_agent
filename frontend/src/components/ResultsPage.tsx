@@ -1,0 +1,149 @@
+import React from 'react';
+import { ValidationResult } from '../types/validation';
+
+interface ResultsPageProps {
+  data: ValidationResult;
+  onBack: () => void;
+  error: string | null;
+  isLoading?: boolean;
+}
+
+export default function ResultsPage({ 
+  data, 
+  onBack, 
+  error, 
+  isLoading 
+}: ResultsPageProps) {
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
+      {/* Header */}
+      <header className="bg-white shadow-sm sticky top-0 z-10">
+        <div className="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
+          <div>
+            <h1 className="text-2xl font-bold text-gray-900">{data.topic}</h1>
+            <p className="text-sm text-gray-600 mt-1">
+              Research Report · Generated with AI
+            </p>
+          </div>
+          <button
+            onClick={onBack}
+            className="px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-800 rounded-lg font-medium transition"
+          >
+            ← Back
+          </button>
+        </div>
+      </header>
+
+      {/* Main Content */}
+      <main className="max-w-4xl mx-auto px-6 py-12">
+        {/* Error Display */}
+        {error && (
+          <div className="bg-red-50 border border-red-200 rounded-lg p-4 mb-6">
+            <p className="text-red-700 font-medium">{error}</p>
+          </div>
+        )}
+
+        {/* Loading State */}
+        {isLoading && (
+          <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
+            <div className="flex items-center gap-3">
+              <div className="animate-spin h-5 w-5 border-2 border-blue-600 border-t-transparent rounded-full"></div>
+              <p className="text-blue-700 font-medium">Research in progress...</p>
+            </div>
+          </div>
+        )}
+
+        {/* Final Report - Only This */}
+        {data.final_report && (
+          <div className="bg-white rounded-lg shadow-lg p-8 prose prose-sm max-w-none">
+            {/* Format the report for better readability */}
+            <div className="text-gray-800 leading-relaxed">
+              {data.final_report
+                .split('\n')
+                .filter(line => line.trim() !== '') // Remove empty lines
+                .map((line, index) => {
+                  // Headers (bold text with ##)
+                  if (line.startsWith('##')) {
+                    return (
+                      <h2 
+                        key={index}
+                        className="text-2xl font-bold text-gray-900 mt-8 mb-4"
+                      >
+                        {line.replace(/^#+\s*/, '')}
+                      </h2>
+                    );
+                  }
+                  // Subheaders (###)
+                  if (line.startsWith('###')) {
+                    return (
+                      <h3 
+                        key={index}
+                        className="text-xl font-bold text-gray-800 mt-6 mb-3"
+                      >
+                        {line.replace(/^#+\s*/, '')}
+                      </h3>
+                    );
+                  }
+                  // Bold text (**)
+                  if (line.includes('**')) {
+                    const parts = line.split(/\*\*(.*?)\*\*/g);
+                    return (
+                      <p key={index} className="mb-4">
+                        {parts.map((part, i) => 
+                          i % 2 === 1 ? (
+                            <strong key={i}>{part}</strong>
+                          ) : (
+                            part
+                          )
+                        )}
+                      </p>
+                    );
+                  }
+                  // Italic text (*)
+                  if (line.includes('_')) {
+                    const parts = line.split(/_(.*?)_/g);
+                    return (
+                      <p key={index} className="mb-4">
+                        {parts.map((part, i) => 
+                          i % 2 === 1 ? (
+                            <em key={i}>{part}</em>
+                          ) : (
+                            part
+                          )
+                        )}
+                      </p>
+                    );
+                  }
+                  // Regular paragraphs
+                  return (
+                    <p key={index} className="mb-4 text-gray-800">
+                      {line}
+                    </p>
+                  );
+                })}
+            </div>
+          </div>
+        )}
+
+        {/* No Report Available */}
+        {!data.final_report && !isLoading && (
+          <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-6">
+            <p className="text-yellow-800 font-medium">
+              ⚠️ No report available. Please try another search.
+            </p>
+          </div>
+        )}
+
+        {/* Footer */}
+        <footer className="mt-12 text-center text-sm text-gray-600 border-t pt-6">
+          <p>
+            This report was generated by AI based on web sources and academic papers.
+          </p>
+          <p className="mt-2">
+            For detailed information, please refer to the original sources.
+          </p>
+        </footer>
+      </main>
+    </div>
+  );
+}

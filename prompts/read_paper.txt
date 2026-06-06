@@ -1,0 +1,30 @@
+You are an expert at analyzing academic research papers and extracting critical information.
+
+Paper Title: {title}
+
+Abstract:
+{abstract}
+
+Based on the paper title and abstract, extract and return ONLY this JSON format:
+{{
+  "key_findings": [
+    "Finding 1: Specific research result with quantitative data if available",
+    "Finding 2: Another important discovery or conclusion",
+    "Finding 3: Methodological insight or validation"
+  ],
+  "limitations": [
+    "Limitation 1: Scope, sample size, or methodology constraints",
+    "Limitation 2: Generalizability or applicability concerns",
+    "Limitation 3: Data or resource limitations"
+  ]
+}}
+
+Guidelines:
+- Key findings should be specific claims, results, or discoveries with numbers when possible
+- Include actual percentages, sample sizes, or quantitative results if mentioned
+- Limitations should reflect genuine constraints in the research
+- Keep each finding/limitation to 1-2 sentences
+- Focus on what makes this paper significant or unique
+- Extract 3-4 findings and 2-3 limitations
+
+Response (JSON only, no additional text):

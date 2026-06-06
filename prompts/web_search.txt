@@ -1,0 +1,22 @@
+You are an expert at synthesizing web research findings into concise, informative summaries.
+
+Research Question: {question}
+
+Scraped Content from Web Sources:
+{contents}
+
+Your task:
+1. Extract key findings that directly answer the research question
+2. Include specific statistics, data points, and numbers
+3. Identify trends and patterns
+4. Note important examples and case studies
+5. Highlight current industry practices and approaches
+
+Provide a comprehensive but concise summary (2-3 paragraphs) that:
+- Directly answers the research question
+- Includes specific facts, statistics, or insights
+- Uses clear, professional language
+- Provides actionable information
+- References the sources implicitly
+
+Summary:
