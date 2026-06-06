@@ -48,7 +48,8 @@ Follows a modular microservices architecture with clear separation of concerns:
 ## Prerequisites
 
 - **Python 3.11+**
-- **Google Gemini API Token** (for the configured Gemini model)
+- **Groq API Key**
+- **Internet connection for web search tools**
 
 ## Installation
 
@@ -77,7 +78,7 @@ pip install -r requirements.txt
 ### 4. Environment Configuration
 Create a `.env` file in the root directory:
 ```env
-GOOGLE_API_KEY=your_google_api_token_here
+GROQ_API_KEY=your_groq_api_token_here
 ```
 
 ## Usage
