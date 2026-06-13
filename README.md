@@ -39,10 +39,7 @@ Agent         Agent
     Research Synthesizer
            │
            ▼
-      Report Writer
-           │
-           ▼
-     Final Research Report
+    Final Research Report
 ```
 
 ## Project Structure
@@ -50,28 +47,30 @@ Agent         Agent
 ```text
 Deep_research_agent/
 │
-├── agents/
+├── frontend
+│
+├── nodes/
 │   ├── topic_analyzer.py
 │   ├── web_search_agent.py
 │   ├── paper_reader_agent.py
-│   ├── research_synthesizer.py
-│   └── report_writer.py
+│   └── writer.py
 │
 ├── graphs/
 │   └── workflow.py
 │
 ├── tools/
-│   ├── web_search.py
-│   └── utilities.py
+│   └── web_search_tool.py
 │
+├── models/
+│   └── chat_model.py
 ├── state/
 │   └── agent_state.py
 │
 ├── prompts/
+│   ├── read_paper.txt
 │   ├── topic_analyzer.txt
-│   ├── web_search_agent.txt
-│   ├── paper_reader_agent.txt
-│   └── report_writer.txt
+│   ├── web_search.txt
+│   └── writer.txt
 │
 ├── main.py
 ├── config.py
